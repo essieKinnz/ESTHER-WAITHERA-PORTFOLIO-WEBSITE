@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esther Waithera | Technical Sales & Digital Marketing</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #F9F9F7;
+            --text: #1A1A2E;
+            --accent: #4ECDC4;
+            --accent-dark: #3ab5ac;
+            --card-bg: #EFEFED;
+            --muted: #888888;
+            --border: #E0E0DE;
+            --white: #FFFFFF;
+            --transition: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Space+Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50%;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--accent);
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO --- */
+        #home {
+            height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 0;
+        }
+
+        .profile-container {
+            margin-bottom: 2rem;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .profile-fallback {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: var(--accent);
+            font-weight: bold;
+            border: 3px solid var(--accent);
+        }
+
+        .hero-name {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 1.2rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-style: italic;
+            margin-bottom: 2.5rem;
+            height: 1.6em;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: var(--accent);
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+            color: var(--muted);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* --- RESUME --- */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+
+        .resume-column h3 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border);
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+
+        .experience-header h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .experience-meta {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        .experience-list {
+            padding-left: 1.2rem;
+        }
+
+        .experience-list li {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(78, 205, 196, 0.1);
+            color: var(--accent-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .cert-card {
+            border: 2px dashed var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* --- PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .project-accent-bar {
+            height: 8px;
+            background-color: var(--accent);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            background-color: var(--card-bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            color: var(--text);
+        }
+
+        .project-link {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            gap: 0.8rem;
+        }
+
+        /* --- LAB CHALLENGES --- */
+        .lab-subtitle {
+            color: var(--muted);
+            margin-top: -2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .challenge-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .challenge-item {
+            background-color: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .challenge-header {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .challenge-header:hover {
+            background-color: rgba(78, 205, 196, 0.03);
+        }
+
+        .challenge-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .challenge-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .badge {
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-htb {
+            background-color: rgba(159, 239, 0, 0.1);
+            color: #9fef00;
+        }
+
+        .badge-thm {
+            background-color: rgba(235, 12, 12, 0.1);
+            color: #eb0c0c;
+        }
+
+        .chevron {
+            transition: transform 0.3s ease;
+            color: var(--muted);
+        }
+
+        .challenge-item.active .chevron {
+            transform: rotate(180deg);
+        }
+
+        .challenge-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 1.5rem;
+        }
+
+        .challenge-item.active .challenge-content {
+            max-height: 1000px; /* Large enough to fit content */
+            padding-bottom: 2rem;
+        }
+
+        .challenge-body {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .challenge-details h5 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            margin-top: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .challenge-details p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+            border: 1px dashed var(--border);
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-chip {
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* --- CONTACT --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(78, 205, 196, 0.1);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-circle {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .social-circle:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-family: inherit;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            border: none;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-dark);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 4rem 0 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .copyright {
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                border-bottom: 1px solid var(--border);
+                gap: 1.5rem;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .resume-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .challenge-body {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-placeholder {
+                order: -1;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-name {
+                font-size: 2.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container">
+            <a href="#home" class="logo">EW</a>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#lab">Lab Challenges</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="profile-container">
+                <!-- Using profile.jpg with fallback -->
+                <img src="profile.jpg" alt="Esther Waithera" class="profile-photo" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'profile-fallback\'>EW</div>'">
+            </div>
+            <h1 class="hero-name">ESTHER WAITHERA</h1>
+            <p class="hero-title">Technical Sales Associate | Digital Marketer | Cybersecurity Learner</p>
+            <div class="hero-tagline" id="tagline"></div>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#" class="btn btn-outline">Download CV</a>
+            </div>
+        </div>
+        <a href="#resume" class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- RESUME SECTION -->
+    <section id="resume" class="container">
+        <h2 class="section-title">Resume</h2>
+        <div class="resume-grid">
+            <div class="resume-column">
+                <h3>Work Experience</h3>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Technical Sales Associate</h4>
+                        <div class="experience-meta">Mamuza Engineering, Nakuru | Aug 2025–Present</div>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Connect customer needs with technical products and solutions.</li>
+                        <li>Generate leads, manage pipeline, close deals and achieve revenue targets.</li>
+                        <li>Build strong client relationships to drive satisfaction and product adoption.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Sales Associate</h4>
+                        <div class="experience-meta">Local Retail Shop, Nakuru | Jun 2024–Jul 2025</div>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Assisted customers, maintained store, processed transactions.</li>
+                        <li>Met and exceeded sales targets through upselling and customer service.</li>
+                    </ul>
+                </div>
+
+                <h3>Education</h3>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Diploma in ICT</h4>
+                        <div class="experience-meta">Kiriri Women's University of Science & Technology</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-column">
+                <h3>Skills</h3>
+                <div class="skills-container">
+                    <span class="skill-tag">Microsoft Office</span>
+                    <span class="skill-tag">Digital Marketing</span>
+                    <span class="skill-tag">Client Engagement</span>
+                    <span class="skill-tag">Lead Generation</span>
+                    <span class="skill-tag">Technical Sales</span>
+                    <span class="skill-tag">Web Savvy</span>
+                    <span class="skill-tag">Data Science (Learning)</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">Networking</span>
+                    <span class="skill-tag">Cybersecurity Fundamentals</span>
+                    <span class="skill-tag">Virtual Assistance (Learning)</span>
+                </div>
+
+                <h3>Certifications</h3>
+                <div class="cert-card">Certification — Coming Soon</div>
+                <div class="cert-card">Certification — Coming Soon</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-accent-bar"></div>
+                <div class="project-content">
+                    <h4>Cybersecurity Learning Path</h4>
+                    <p>Ongoing training via HackTheBox & TryHackMe — covering Networking, Linux, Windows OS, and Vulnerability Assessment.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HackTheBox</span>
+                        <span class="project-tag">TryHackMe</span>
+                        <span class="project-tag">Networking</span>
+                        <span class="project-tag">Linux</span>
+                    </div>
+                    <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-accent-bar"></div>
+                <div class="project-content">
+                    <h4>Digital Marketing Campaign Analysis</h4>
+                    <p>Analysis of digital marketing strategies and campaign performance from hands-on sales experience.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Digital Marketing</span>
+                        <span class="project-tag">Analytics</span>
+                        <span class="project-tag">Sales</span>
+                    </div>
+                    <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-accent-bar"></div>
+                <div class="project-content">
+                    <h4>ICT Academic Project</h4>
+                    <p>Academic project completed during Diploma studies at Kiriri Women's University of Science & Technology.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">ICT</span>
+                        <span class="project-tag">Research</span>
+                        <span class="project-tag">University</span>
+                    </div>
+                    <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAB CHALLENGES SECTION -->
+    <section id="lab" class="container">
+        <h2 class="section-title">Lab Challenges</h2>
+        <p class="lab-subtitle">Write-ups from HackTheBox and TryHackMe training modules.</p>
+        
+        <div class="challenge-accordion">
+            <!-- Challenge 1 -->
+            <div class="challenge-item">
+                <div class="challenge-header">
+                    <div class="challenge-info">
+                        <span class="challenge-title">1. Networking Fundamentals</span>
+                        <span class="badge badge-htb">HackTheBox</span>
+                    </div>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="challenge-content">
+                    <div class="challenge-body">
+                        <div class="challenge-details">
+                            <h5>Problem Statement</h5>
+                            <p>Understand how networks are structured, how data flows, and how segmentation is used as a security strategy.</p>
+                            <h5>Approach</h5>
+                            <p>Completed the HackTheBox Networking Fundamentals module. Studied subnet design, DMZ concepts, and how misconfigured subnet masks can cause penetration testers to miss targets.</p>
+                            <h5>Tools Used</h5>
+                            <div class="tools-list">
+                                <span class="tool-chip">HackTheBox Academy</span>
+                            </div>
+                            <h5>Key Lessons Learned</h5>
+                            <p>Network segmentation creates layered defenses. A misconfiguration like using /24 instead of /25 can lead to missed targets.</p>
+                            <a href="https://academy.hackthebox.com/achievement/2380239/34" target="_blank" class="project-link">View Achievement <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <div class="screenshot-placeholder">Screenshot — to be added</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenge 2 -->
+            <div class="challenge-item">
+                <div class="challenge-header">
+                    <div class="challenge-info">
+                        <span class="challenge-title">2. Introduction to Windows</span>
+                        <span class="badge badge-htb">HackTheBox</span>
+                    </div>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="challenge-content">
+                    <div class="challenge-body">
+                        <div class="challenge-details">
+                            <h5>Problem Statement</h5>
+                            <p>Learn Windows OS structure, file systems, NTFS permissions, SMB protocol, and remote access.</p>
+                            <h5>Approach</h5>
+                            <p>Used Get-WmiObject to retrieve OS versions, explored directories with dir and tree, managed NTFS permissions using icacls, and accessed a Windows machine remotely with xfreerdp.</p>
+                            <h5>Tools Used</h5>
+                            <div class="tools-list">
+                                <span class="tool-chip">xfreerdp</span>
+                                <span class="tool-chip">icacls</span>
+                                <span class="tool-chip">PowerShell</span>
+                                <span class="tool-chip">HTB Academy</span>
+                            </div>
+                            <h5>Key Lessons Learned</h5>
+                            <p>Windows' dominant market share makes it the top malware target. EternalBlue and SMBv1 still power modern ransomware on unpatched systems.</p>
+                            <a href="https://academy.hackthebox.com/achievement/2380239/49" target="_blank" class="project-link">View Achievement <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <div class="screenshot-placeholder">Screenshot — to be added</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenge 3 -->
+            <div class="challenge-item">
+                <div class="challenge-header">
+                    <div class="challenge-info">
+                        <span class="challenge-title">3. Linux Fundamentals — Privilege Escalation</span>
+                        <span class="badge badge-htb">HackTheBox</span>
+                    </div>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="challenge-content">
+                    <div class="challenge-body">
+                        <div class="challenge-details">
+                            <h5>Problem Statement</h5>
+                            <p>Navigate a Linux environment, escalate privileges, and capture hidden flags.</p>
+                            <h5>Approach</h5>
+                            <p>Used nmap -sV to enumerate services, identified sudo misconfiguration via sudo -l, pivoted from user1 to user2, accessed restricted SSH keys from root's .ssh folder, and achieved full root control.</p>
+                            <h5>Tools Used</h5>
+                            <div class="tools-list">
+                                <span class="tool-chip">nmap</span>
+                                <span class="tool-chip">SSH</span>
+                                <span class="tool-chip">sudo</span>
+                                <span class="tool-chip">GTFObins</span>
+                                <span class="tool-chip">Metasploit</span>
+                            </div>
+                            <h5>Key Lessons Learned</h5>
+                            <p>Sudo misconfigurations are a critical attack surface. GTFObins is essential for privilege escalation through allowed binaries like PHP.</p>
+                            <a href="https://academy.hackthebox.com/achievement/2380239/77" target="_blank" class="project-link">View Achievement <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <div class="screenshot-placeholder">Screenshot — to be added</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenge 4 -->
+            <div class="challenge-item">
+                <div class="challenge-header">
+                    <div class="challenge-info">
+                        <span class="challenge-title">4. Linux Fundamentals — Core Commands</span>
+                        <span class="badge badge-htb">HackTheBox</span>
+                    </div>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="challenge-content">
+                    <div class="challenge-body">
+                        <div class="challenge-details">
+                            <h5>Problem Statement</h5>
+                            <p>Get hands-on with Linux command-line navigation, file exploration, and system information gathering.</p>
+                            <h5>Approach</h5>
+                            <p>Used commands to find machine hardware name, locate home directories, identify the active shell, check kernel version, find .bak files, locate the xxd binary, and check partition counts.</p>
+                            <h5>Tools Used</h5>
+                            <div class="tools-list">
+                                <span class="tool-chip">pwd</span>
+                                <span class="tool-chip">uname</span>
+                                <span class="tool-chip">find</span>
+                                <span class="tool-chip">grep</span>
+                            </div>
+                            <h5>Key Lessons Learned</h5>
+                            <p>Strong command-line fluency is the foundation of any Linux-based security or administration work.</p>
+                        </div>
+                        <div class="screenshot-placeholder">Screenshot — to be added</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenge 5 -->
+            <div class="challenge-item">
+                <div class="challenge-header">
+                    <div class="challenge-info">
+                        <span class="challenge-title">5. Vulnerability Assessment</span>
+                        <span class="badge badge-htb">HackTheBox</span>
+                    </div>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="challenge-content">
+                    <div class="challenge-body">
+                        <div class="challenge-details">
+                            <h5>Problem Statement</h5>
+                            <p>Use Nessus to scan a Windows host, identify high-severity vulnerabilities, and interpret results.</p>
+                            <h5>Approach</h5>
+                            <p>Opened the Windows_basic_authed scan, sorted by CVSS score, filtered by Plugin ID 26925, identified VNC Server Unauthenticated Access, and located FTP and HTTP vulnerabilities on the target host.</p>
+                            <h5>Tools Used</h5>
+                            <div class="tools-list">
+                                <span class="tool-chip">Nessus</span>
+                                <span class="tool-chip">HTB Academy</span>
+                            </div>
+                            <h5>Key Lessons Learned</h5>
+                            <p>Sorting by CVSS score immediately surfaces critical risks. Filtering by Plugin ID is a fast way to validate specific vulnerabilities.</p>
+                            <a href="https://academy.hackthebox.com/achievement/2380239/108" target="_blank" class="project-link">View Achievement <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <div class="screenshot-placeholder">Screenshot — to be added</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenge 6 -->
+            <div class="challenge-item">
+                <div class="challenge-header">
+                    <div class="challenge-info">
+                        <span class="challenge-title">6. Passive Reconnaissance</span>
+                        <span class="badge badge-thm">TryHackMe</span>
+                    </div>
+                    <i class="fas fa-chevron-down chevron"></i>
+                </div>
+                <div class="challenge-content">
+                    <div class="challenge-body">
+                        <div class="challenge-details">
+                            <h5>Problem Statement</h5>
+                            <p>Gather intelligence on a target using only passive methods — no direct interaction with the target system.</p>
+                            <h5>Approach</h5>
+                            <p>Completed TryHackMe Passive Recon room. Used OSINT techniques, technical blogs, and community walkthroughs to navigate and complete all tasks.</p>
+                            <h5>Tools Used</h5>
+                            <div class="tools-list">
+                                <span class="tool-chip">TryHackMe</span>
+                                <span class="tool-chip">OSINT</span>
+                                <span class="tool-chip">Research</span>
+                            </div>
+                            <h5>Key Lessons Learned</h5>
+                            <p>Passive recon is a critical first step in any engagement. Community resources are invaluable.</p>
+                            <a href="https://tryhackme.com/room/passiverecon" target="_blank" class="project-link">View Achievement <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <div class="screenshot-placeholder">Screenshot — to be added</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>waithera.esthermuturi@gmail.com</div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>+254 794 550 264</div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div>linkedin.com/in/esther-muturi</div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fab fa-github"></i></div>
+                        <div>github.com/essieKinnz</div>
+                    </div>
+                </div>
+                <div class="social-row">
+                    <a href="https://www.linkedin.com/in/esther-muturi" target="_blank" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/essieKinnz" target="_blank" class="social-circle"><i class="fab fa-github"></i></a>
+                    <a href="mailto:waithera.esthermuturi@gmail.com" class="social-circle"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="contact-form-container">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" placeholder="How can I help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="logo footer-logo">EW</div>
+            <p class="copyright">© 2025 Esther Waithera. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- NAVIGATION TOGGLE ---
+        const navToggle = document.getElementById('navToggle');
+        const navLinksScroll = document.getElementById('navLinks');
+        const navLinksA = document.querySelectorAll('.nav-links a');
+
+        navToggle.addEventListener('click', () => {
+            navLinksScroll.classList.toggle('active');
+            navToggle.querySelector('i').classList.toggle('fa-bars');
+            navToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile nav when link clicked
+        navLinksA.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksScroll.classList.remove('active');
+                navToggle.querySelector('i').classList.add('fa-bars');
+                navToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // --- ACTIVE LINK ON SCROLL ---
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksA.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // --- TYPING ANIMATION ---
+        const taglineElement = document.getElementById('tagline');
+        const taglineText = "Bridging technical solutions with human connection.";
+        let charIndex = 0;
+
+        function typeEffect() {
+            if (charIndex < taglineText.length) {
+                taglineElement.innerHTML = taglineText.substring(0, charIndex + 1) + '<span class="typing-cursor"></span>';
+                charIndex++;
+                setTimeout(typeEffect, 100);
+            }
+        }
+
+        // Start typing on load
+        window.addEventListener('DOMContentLoaded', typeEffect);
+
+        // --- ACCORDION LOGIC ---
+        const challengeItems = document.querySelectorAll('.challenge-item');
+        challengeItems.forEach(item => {
+            const header = item.querySelector('.challenge-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                challengeItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+
+                // Toggle clicking item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // --- SCROLL ANIMATIONS (IntersectionObserver) ---
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Prevent form submission
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! This form is for demonstration purposes.');
+        });
+    </script>
+</body>
+</html>
