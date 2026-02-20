@@ -1,37 +1,33 @@
-# Esther Waithera Portfolio
+# Esther Waithera | Technical Sales · Digital Marketing · Cybersecurity
 
-A minimalist, professional portfolio website for **Esther Waithera**, a Technical Sales Associate, Digital Marketer, and Cybersecurity Learner.
+Welcome to my professional portfolio. I am a dedicated **Technical Sales Associate** and **Digital Marketer** with a deep passion for **Cybersecurity**. My work focuses on bridging the gap between complex technical solutions and meaningful human connections.
 
-## 🚀 Live Demo
-The portfolio is hosted on GitHub Pages. [View it here](https://essieKinnz.github.io/ESTHER-WAITHERA-PORTFOLIO-WEBSITE/) *(Update with your actual URL once deployed)*.
+## 💼 About Me
+With a background in ICT and hands-on experience in technical sales, I specialize in identifying customer needs and delivering products that drive adoption and satisfaction. Currently, I am expanding my expertise into the cybersecurity landscape, focusing on networking, Linux environments, and vulnerability assessments.
 
-## ✨ Features
-- **Minimalist Design**: Clean, modern aesthetic with a focus on readability and whitespace.
-- **Responsive Layout**: Optimal viewing experience across all devices (Desktop, Tablet, Mobile).
-- **Interactive Elements**:
-  - Typing animation for the hero tagline.
-  - Sticky navigation with scroll-spy highlights.
-  - Interactive accordion for Lab Challenges.
-  - Smooth scroll-triggered fade-in animations.
-- **Project Showcase**: Grid layout for highlighting key professional and academic projects.
-- **Cybersecurity Labs**: Detailed write-ups for HackTheBox and TryHackMe modules.
+## 🚀 Professional Highlights
+- **Technical Sales**: Expert in lead generation, pipeline management, and building long-term client relationships.
+- **Digital Marketing**: Strategic analysis of campaign performance and market trends.
+- **Cybersecurity Learning**: Active practitioner on platforms like HackTheBox and TryHackMe, documenting labs and security challenges.
 
-## 🛠️ Technology Stack
-- **HTML5**: Semantic structure.
-- **CSS3**: Custom design system, responsive grid/flexbox, and animations.
-- **JavaScript (Vanilla)**: All interactive logic without external libraries (except icons and fonts).
-- **Font Awesome 6**: Professional iconography.
-- **Google Fonts**: Space Grotesk (Headings) & Inter (Body).
+## 🛠️ Skills & Expertise
+- **Sales & Engagement**: Technical Sales, Client Engagement, Lead Generation.
+- **Digital Strategy**: Digital Marketing, Analytics, Strategy.
+- **Technical Foundation**: Linux, Networking, ICT Research.
+- **Security Focus**: Vulnerability Assessment, Passive Reconnaissance, Fundamentals.
 
-## 📂 Project Structure
-- `index.html`: Main HTML file containing structure and interactive logic.
-- `style.css`: Comprehensive design system and responsive styles.
-- `images/`: Directory for media assets (including `img.jpg` for the profile).
+## 📂 Featured Work
+This repository hosts my live portfolio, which includes:
+- **Project Grid**: Highlights of my academic and professional journey.
+- **Lab Challenges**: Detailed write-ups and achievements from my cybersecurity training modules.
+- **Interactive Resume**: A snapshot of my experience and certifications.
 
-## 📬 Contact
-- **Email**: waithera.esthermuturi@gmail.com
-- **LinkedIn**: [esther-muturi](https://www.linkedin.com/in/esther-muturi)
-- **GitHub**: [essieKinnz](https://github.com/essieKinnz)
+## 📬 Connect With Me
+I am always open to discussing technical sales strategies, digital marketing insights, or cybersecurity trends.
+
+- **Email**: [waithera.esthermuturi@gmail.com](mailto:waithera.esthermuturi@gmail.com)
+- **LinkedIn**: [linkedin.com/in/esther-muturi](https://www.linkedin.com/in/esther-muturi)
+- **GitHub**: [github.com/essieKinnz](https://github.com/essieKinnz)
 
 ---
-© 2025 Esther Waithera. All rights reserved.
+*© 2025 Esther Waithera. Built with intentionality and a focus on minimalist design.*
